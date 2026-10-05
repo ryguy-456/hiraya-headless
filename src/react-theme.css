@@ -1743,3 +1743,192 @@ main,
     min-height: 120px;
   }
 }
+
+/* =========================================================
+   REACT HEADLESS NAVIGATION
+   ========================================================= */
+
+.react-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: transparent !important;
+  border: none !important;
+}
+
+.react-nav__inner {
+  width: min(92%, 1400px);
+  max-width: 1400px;
+  min-height: 88px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.react-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.react-nav__brand:hover {
+  border-color: var(--react-cyan);
+  box-shadow: 0 0 22px var(--react-glow);
+  transform: translateY(-2px);
+}
+
+.react-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  margin-left: auto;
+}
+
+.react-nav__links a {
+  position: relative;
+
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+
+  font-size: 0.9rem;
+  font-weight: 500;
+
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease;
+}
+
+.react-nav__links a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 14px rgba(85, 230, 255, 0.65);
+}
+
+.react-nav__contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 20px;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  border: 1px solid rgba(85, 230, 255, 0.7);
+  border-radius: 999px;
+
+  background: transparent;
+
+  box-shadow:
+    0 0 18px rgba(85, 230, 255, 0.12);
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.react-nav__contact:hover {
+  background: rgba(85, 230, 255, 0.10);
+  border-color: var(--react-cyan);
+
+  box-shadow:
+    0 0 25px rgba(85, 230, 255, 0.28);
+
+  transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+  .react-nav__inner {
+    min-height: 76px;
+    gap: 15px;
+  }
+
+  .react-nav__links {
+    gap: 14px;
+  }
+
+  .react-nav__links a {
+    font-size: 0.78rem;
+  }
+
+  .react-nav__contact {
+    padding: 9px 14px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .react-nav__links {
+    display: none;
+  }
+
+  .react-nav__contact {
+    margin-left: auto;
+  }
+}
+
+/* =========================================================
+   SCROLLED NAVIGATION
+   ========================================================= */
+
+.react-nav--scrolled {
+  background: #ffffff !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.react-nav--scrolled .react-nav__brand {
+  color: #111827;
+  border-color: rgba(17, 24, 39, 0.25);
+}
+
+.react-nav--scrolled .react-nav__links a {
+  color: #111827;
+  text-shadow: none;
+}
+
+.react-nav--scrolled .react-nav__links a:hover {
+  color: #111827;
+  text-shadow: none;
+}
+
+.react-nav--scrolled .react-nav__contact {
+  color: #111827;
+  border-color: #111827;
+  background: transparent;
+  box-shadow: none;
+}
+
+.react-nav--scrolled .react-nav__contact:hover {
+  background: #111827;
+  color: #ffffff;
+  border-color: #111827;
+}
