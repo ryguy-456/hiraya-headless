@@ -1,0 +1,83 @@
+/* ================================
+   HIRAYA CHATBOT
+   ================================ */
+
+.hiraya-chatbot {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+}
+
+/* Chat window */
+.hiraya-chatbot .rcb-chat-window {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(79, 140, 255, 0.45) !important;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.45),
+    0 0 35px rgba(79, 140, 255, 0.18) !important;
+}
+
+/* Chat body */
+.hiraya-chatbot .rcb-chat-body-container {
+  background:
+    radial-gradient(
+      circle at 80% 0%,
+      rgba(79, 140, 255, 0.12),
+      transparent 35%
+    ),
+    #0b1120 !important;
+
+  scrollbar-width: thin;
+}
+
+/* Bot message area */
+.hiraya-chatbot .rcb-bot-message-container {
+  background: transparent !important;
+}
+
+/* Bot message */
+.hiraya-chatbot .rcb-bot-message {
+  background: rgba(255, 255, 255, 0.07) !important;
+  color: #e5e7eb !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  border-radius: 14px !important;
+}
+
+/* Option buttons */
+.hiraya-chatbot .rcb-options {
+  background: rgba(79, 140, 255, 0.08) !important;
+
+  border-color: rgba(79, 140, 255, 0.40) !important;
+
+  color: #bcd2ff !important;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease !important;
+}
+
+.hiraya-chatbot .rcb-options:hover {
+  background: rgba(79, 140, 255, 0.20) !important;
+  border-color: rgba(79, 140, 255, 0.75) !important;
+  transform: translateY(-1px);
+}
+
+/* ================================
+   MOBILE
+   ================================ */
+
+@media (max-width: 600px) {
+  .hiraya-chatbot {
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .hiraya-chatbot .rcb-chat-window {
+    width: calc(100vw - 28px) !important;
+  }
+}
