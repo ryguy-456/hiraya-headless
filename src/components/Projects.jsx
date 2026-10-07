@@ -1,4 +1,4 @@
-function Projects() {
+function Projects({ projects }) {
   return (
     <section id="projects" className="hiraya-section hiraya-projects">
       <div className="hiraya-container">
@@ -19,98 +19,29 @@ function Projects() {
 
         <div className="hiraya-projects__grid">
 
-          {/* HIRAYA */}
-          <article className="hiraya-project-card">
+          {projects.map((project, index) => (
+            <article className="hiraya-project-card" key={project.id}>
 
-            <div className="hiraya-project-card__top">
-              <span className="hiraya-project-card__number">01</span>
+              <div className="hiraya-project-card__top">
+                <span className="hiraya-project-card__number">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
 
-              <span className="hiraya-project-card__type">
-                Drupal 11
-              </span>
-            </div>
+                <span className="hiraya-project-card__type">
+                  Drupal Project
+                </span>
+              </div>
 
-            <h3 className="hiraya-project-card__title">
-              HIRAYA
-            </h3>
+              <h3 className="hiraya-project-card__title">
+                {project.title}
+              </h3>
 
-            <p className="hiraya-project-card__description">
-              A custom Drupal 11 portfolio theme built from the ground up with
-              Twig, CSS, reusable components, responsive layouts, and
-              accessibility-focused design.
-            </p>
+              <p className="hiraya-project-card__description">
+                {project.description}
+              </p>
 
-            <div className="hiraya-project-card__tags">
-              <span>Drupal 11</span>
-              <span>Twig</span>
-              <span>CSS</span>
-              <span>DDEV</span>
-              <span>Git</span>
-            </div>
-
-          </article>
-
-          {/* CONTENTFLOW */}
-          <article className="hiraya-project-card">
-
-            <div className="hiraya-project-card__top">
-              <span className="hiraya-project-card__number">02</span>
-
-              <span className="hiraya-project-card__type">
-                React
-              </span>
-            </div>
-
-            <h3 className="hiraya-project-card__title">
-              ContentFlow
-            </h3>
-
-            <p className="hiraya-project-card__description">
-              A modern content management dashboard built with React and Vite,
-              featuring dashboard navigation, search, modal interfaces, and a
-              responsive application layout.
-            </p>
-
-            <div className="hiraya-project-card__tags">
-              <span>React</span>
-              <span>Vite</span>
-              <span>JavaScript</span>
-              <span>GitHub</span>
-              <span>Vercel</span>
-            </div>
-
-          </article>
-
-          {/* DEVELOPER INFO */}
-          <article className="hiraya-project-card">
-
-            <div className="hiraya-project-card__top">
-              <span className="hiraya-project-card__number">03</span>
-
-              <span className="hiraya-project-card__type">
-                Drupal Module
-              </span>
-            </div>
-
-            <h3 className="hiraya-project-card__title">
-              Developer Info
-            </h3>
-
-            <p className="hiraya-project-card__description">
-              A custom Drupal module demonstrating Drupal development concepts
-              including routing, controllers, custom functionality, and
-              integration with the Drupal platform.
-            </p>
-
-            <div className="hiraya-project-card__tags">
-              <span>PHP</span>
-              <span>Drupal</span>
-              <span>Custom Module</span>
-              <span>Drush</span>
-              <span>Composer</span>
-            </div>
-
-          </article>
+            </article>
+          ))}
 
         </div>
 

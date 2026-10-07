@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import './hiraya.css'
 import './react-theme.css'
 
@@ -13,6 +15,20 @@ import Footer from './components/Footer'
 import Chatbot from './components/Chatbot'
 
 function App() {
+  const [projects, setProjects] = useState([])
+
+  useEffect(() => {
+    fetch('https://dev-ryan-buenconsejo.pantheonsite.io/api/projects')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Drupal projects:', data)
+        setProjects(data)
+      })
+      .catch((error) => {
+        console.error('Error fetching Drupal projects:', error)
+      })
+  }, [])
+
   return (
     <>
       <ReactNav />
@@ -21,7 +37,7 @@ function App() {
       <Experience />
       <Skills />
       <Toolkit />
-      <Projects />
+      <Projects projects={projects} />
       <Contact />
       <Footer />
       <Chatbot />
