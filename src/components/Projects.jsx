@@ -28,7 +28,7 @@ function Projects({ projects }) {
                 </span>
 
                 <span className="hiraya-project-card__type">
-                  Drupal Project
+                  {project.type || 'Drupal Project'}
                 </span>
               </div>
 
