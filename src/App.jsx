@@ -1,8 +1,7 @@
+import AccessibilityWidget from './components/AccessibilityWidget';
 import { useEffect, useState } from 'react'
-
 import './hiraya.css'
 import './react-theme.css'
-
 import ReactNav from './components/ReactNav'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -41,6 +40,7 @@ function App() {
       <Contact />
       <Footer />
       <Chatbot />
+      <AccessibilityWidget />
     </>
   )
 }

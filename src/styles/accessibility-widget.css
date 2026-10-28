@@ -1,0 +1,473 @@
+/* HIRAYA Accessibility Assistant — styles are namespaced to avoid clashing with site styles. */
+.hiraya-a11y {
+  --a11y-ink: #eaf0ff;
+  --a11y-muted: #aab7d2;
+  --a11y-panel: rgba(12, 20, 39, 0.97);
+  --a11y-border: rgba(170, 190, 230, 0.2);
+  --a11y-accent: #8bafff;
+  --a11y-accent-ink: #071329;
+  color: var(--a11y-ink);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.hiraya-a11y *,
+.hiraya-a11y *::before,
+.hiraya-a11y *::after {
+  box-sizing: border-box;
+}
+
+.hiraya-a11y button {
+  font: inherit;
+}
+
+.hiraya-a11y button:focus-visible {
+  outline: 3px solid #fbbf24;
+  outline-offset: 3px;
+}
+
+.hiraya-a11y__launcher {
+  position: fixed;
+  right: max(22px, env(safe-area-inset-right));
+  bottom: max(22px, env(safe-area-inset-bottom));
+  z-index: 9998;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 0 20px;
+  color: #081329;
+  background: linear-gradient(135deg, #e0eaff 0%, #a8c5ff 48%, #87aaff 100%);
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  border-radius: 999px;
+  box-shadow: 0 14px 38px rgba(2, 8, 23, 0.3), 0 0 0 5px rgba(143, 177, 255,  0.10);
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.hiraya-a11y__launcher:hover {
+  transform: translateY(-3px);
+  filter: saturate(1.08);
+  box-shadow: 0 18px 44px rgba(2, 8, 23, 0.38), 0 0 0 7px rgba(143, 177, 255, 0.13);
+}
+
+.hiraya-a11y__launcher:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.hiraya-a11y__launcher svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex: 0 0 auto;
+}
+
+.hiraya-a11y__launcher-label {
+  font-weight: 750;
+  font-size: 0.92rem;
+  letter-spacing: -0.01em;
+}
+
+.hiraya-a11y__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: rgba(2, 6, 23, 0.28);
+  border: 0;
+  border-radius: 0;
+  cursor: default;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  animation: hiraya-a11y-backdrop-in 180ms ease-out both;
+}
+
+.hiraya-a11y__panel {
+  position: fixed;
+  right: max(22px, env(safe-area-inset-right));
+  bottom: calc(max(22px, env(safe-area-inset-bottom)) + 72px);
+  z-index: 9999;
+  width: min(400px, calc(100vw - 28px));
+  max-height: min(720px, calc(100dvh - 120px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 24px;
+  color: var(--a11y-ink);
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(112, 145, 255, 0.16), transparent 42%),
+    linear-gradient(155deg, rgba(16, 26, 49, 0.99), rgba(7, 13, 29, 0.99));
+  border: 1px solid rgba(185, 204, 255, 0.25);
+  border-radius: 25px;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.52), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(26px);
+  backdrop-filter: blur(26px);
+  animation: hiraya-a11y-enter 220ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.hiraya-a11y__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(185, 204, 255, 0.16);
+}
+
+.hiraya-a11y__eyebrow {
+  margin: 0 0 5px;
+  color: var(--a11y-accent);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.hiraya-a11y__header h2 {
+  margin: 0;
+  color: var(--a11y-ink);
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.hiraya-a11y__close {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  color: var(--a11y-ink);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--a11y-border);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.hiraya-a11y__close svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.hiraya-a11y__description {
+  margin: 15px 0 20px;
+  color: var(--a11y-muted);
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+
+.hiraya-a11y__group {
+  padding: 15px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+  border: 1px solid var(--a11y-border);
+  border-radius: 16px;
+}
+
+.hiraya-a11y__group h3 {
+  margin: 0 0 12px;
+  color: var(--a11y-ink);
+  font-size: 0.92rem;
+}
+
+.hiraya-a11y__text-controls {
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  align-items: center;
+  gap: 10px;
+}
+
+.hiraya-a11y__secondary-button {
+  min-height: 40px;
+  color: var(--a11y-ink);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--a11y-border);
+  border-radius: 11px;
+  font-weight: 800 !important;
+  cursor: pointer;
+}
+
+.hiraya-a11y__secondary-button:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.hiraya-a11y__scale {
+  color: var(--a11y-ink);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.hiraya-a11y__options {
+  margin-top: 10px;
+}
+
+.hiraya-a11y__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 1px;
+  border-bottom: 1px solid var(--a11y-border);
+}
+
+.hiraya-a11y__option:last-child {
+  border-bottom: 0;
+}
+
+.hiraya-a11y__option-copy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.hiraya-a11y__option-title {
+  color: var(--a11y-ink);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.hiraya-a11y__option-description {
+  color: var(--a11y-muted);
+  font-size: 0.76rem;
+  line-height: 1.45;
+}
+
+.hiraya-a11y__switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 46px;
+  height: 27px;
+  padding: 3px;
+  background: #47536b;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 160ms ease;
+}
+
+.hiraya-a11y__switch.is-on {
+  background: #8bafff;
+}
+
+.hiraya-a11y__switch-thumb {
+  display: block;
+  width: 19px;
+  height: 19px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  transition: transform 160ms ease;
+}
+
+.hiraya-a11y__switch.is-on .hiraya-a11y__switch-thumb {
+  transform: translateX(19px);
+}
+
+.hiraya-a11y__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.hiraya-a11y__reset,
+.hiraya-a11y__done {
+  min-height: 42px;
+  padding: 0 15px;
+  border-radius: 12px;
+  font-size: 0.86rem !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+}
+
+.hiraya-a11y__reset {
+  color: var(--a11y-ink);
+  background: transparent;
+  border: 1px solid var(--a11y-border);
+}
+
+.hiraya-a11y__done {
+  min-width: 92px;
+  color: var(--a11y-accent-ink);
+  background: var(--a11y-accent);
+  border: 1px solid transparent;
+}
+
+.hiraya-a11y__note {
+  margin: 15px 0 0;
+  color: var(--a11y-muted);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+@keyframes hiraya-a11y-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes hiraya-a11y-enter {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Preferences apply to the page, not to the widget's own control panel. */
+html[data-hiraya-text-scale="1.1"] { font-size: 110%; }
+html[data-hiraya-text-scale="1.2"] { font-size: 120%; }
+html[data-hiraya-text-scale="1.3"] { font-size: 130%; }
+
+html[data-hiraya-underline-links="true"] body a:not(.hiraya-a11y a) {
+  text-decoration-line: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 0.18em !important;
+}
+
+html[data-hiraya-spacious-text="true"] body :where(p, li, blockquote, label, input, textarea, select):not(.hiraya-a11y *) {
+  line-height: 1.85 !important;
+  letter-spacing: 0.025em !important;
+  word-spacing: 0.08em !important;
+}
+
+html[data-hiraya-contrast="high"] body {
+  color: #fff !important;
+  background-color: #000 !important;
+}
+
+html[data-hiraya-contrast="high"] body :where(p, li, label, small, blockquote, h1, h2, h3, h4, h5, h6, strong, em, code) {
+  color: #fff !important;
+}
+
+html[data-hiraya-contrast="high"] body a:not(.hiraya-a11y a) {
+  color: #ffeb3b !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 0.18em !important;
+}
+
+html[data-hiraya-contrast="high"] body :where(button, input, textarea, select):not(.hiraya-a11y *) {
+  color: #fff !important;
+  background-color: #000 !important;
+  border: 2px solid #fff !important;
+}
+
+html[data-hiraya-contrast="high"] body :where(button, a, input, textarea, select):not(.hiraya-a11y *):focus-visible {
+  outline: 3px solid #ffeb3b !important;
+  outline-offset: 3px !important;
+}
+
+html[data-hiraya-reduce-motion="true"] body *,
+html[data-hiraya-reduce-motion="true"] body *::before,
+html[data-hiraya-reduce-motion="true"] body *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0.01ms !important;
+}
+
+@media (max-width: 480px) {
+  .hiraya-a11y__launcher {
+    right: 14px;
+    bottom: 14px;
+    min-height: 50px;
+    padding: 0 15px;
+  }
+
+  .hiraya-a11y__panel {
+    right: 10px;
+    bottom: 74px;
+    width: calc(100vw - 20px);
+    max-height: calc(100dvh - 90px);
+    padding: 19px;
+    border-radius: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hiraya-a11y__launcher,
+  .hiraya-a11y__switch-thumb {
+    transition: none;
+  }
+
+  .hiraya-a11y__panel,
+  .hiraya-a11y__backdrop {
+    animation: none;
+  }
+}
+
+
+/* HIRAYA: Position accessibility widget bottom-left */
+.accessibility-widget-launcher {
+  position: fixed;
+  left: 24px;
+  right: auto;
+  bottom: 24px;
+  z-index: 9999;
+}
+
+/* Keep the accessibility panel above the launcher */
+.accessibility-widget-panel {
+  position: fixed;
+  left: 24px;
+  right: auto;
+  bottom: 90px;
+  z-index: 9998;
+}
+
+/* Mobile spacing */
+@media (max-width: 600px) {
+  .accessibility-widget-launcher {
+    left: 16px;
+    bottom: 16px;
+  }
+
+  .accessibility-widget-panel {
+    left: 12px;
+    right: 12px;
+    bottom: 76px;
+    width: auto;
+    max-width: none;
+  }
+}
+
+
+/* HIRAYA accessibility widget: bottom-left */
+.hiraya-a11y__launcher {
+  left: 24px !important;
+  right: auto !important;
+  bottom: 24px !important;
+  z-index: 10000;
+}
+
+.hiraya-a11y__panel {
+  left: 24px !important;
+  right: auto !important;
+  bottom: 90px !important;
+  z-index: 10001;
+}
+
+@media (max-width: 600px) {
+  .hiraya-a11y__launcher {
+    left: 16px !important;
+    bottom: 16px !important;
+  }
+
+  .hiraya-a11y__panel {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 76px !important;
+    width: auto;
+    max-width: none;
+  }
+}
