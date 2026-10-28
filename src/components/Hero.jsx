@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import AuroraFlow from './AuroraFlow'
 
-function Hero() {
+function Hero() {  const [showNotice, setShowNotice] = useState(true)
+
   return (
     <section className="hiraya-hero hiraya-aurora-hero">
 
@@ -23,6 +25,27 @@ function Hero() {
             Building accessible, scalable Drupal experiences for organizations
             that need reliable digital platforms.
           </p>
+
+          {showNotice && (
+ <div className="hiraya-notice" role="status">
+    <div className="hiraya-notice__content">
+      <strong>👋 Available for Web Development Projects</strong>
+      <p>Have a project in mind? Let's discuss how I can help.</p>
+      <a href="#contact" className="hiraya-button hiraya-button--primary">
+        Schedule a Consultation
+      </a>
+    </div>
+
+    <button
+      type="button"
+      className="hiraya-notice__close"
+      onClick={() => setShowNotice(false)}
+      aria-label="Dismiss availability notice"
+    >
+      ×
+    </button>
+  </div>
+)}
 
           <div className="hiraya-hero__actions">
 

@@ -2315,3 +2315,67 @@ body {
 .hiraya-toolkit .hiraya-toolkit__intro {
   color: #111827 !important;
 }
+
+
+
+
+.hiraya-notice {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  z-index: 10000;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+
+  width: min(440px, calc(100vw - 32px));
+  box-sizing: border-box;
+  padding: 1.75rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.97);
+  color: #fff;
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(16px);
+  animation: hiraya-notice-enter 0.3s ease-out;
+}
+
+.hiraya-aurora-hero {
+  position: relative;
+}
+
+@keyframes hiraya-notice-enter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -46%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.hiraya-aurora-hero.hiraya-hero--notice-open {
+  background: linear-gradient(
+    135deg,
+    #0f172a 0%,
+    #312e81 45%,
+    #0e7490 100%
+  );
+}
+
+.hiraya-aurora-hero.hiraya-hero--notice-open
+  .hiraya-aurora-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(49, 46, 129, 0.65),
+    rgba(14, 116, 144, 0.55)
+  );
+}
