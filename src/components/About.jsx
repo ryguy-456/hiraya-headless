@@ -25,7 +25,7 @@ function About() {
             components, Twig templating, accessibility, and deployment
             workflows.
           </p>
-
+        <br />
           <p>
             My approach combines strong CMS knowledge with practical
             front-end development and a focus on creating experiences that
