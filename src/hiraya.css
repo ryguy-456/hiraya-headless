@@ -2480,3 +2480,13 @@ body {
     border-radius: 15px;
   }
 }
+
+.hiraya-about__content p,
+.hiraya-about__content span,
+.hiraya-about__content li {
+  color: #000000 !important;
+}
+
+.hiraya-about .hiraya-about__content p {
+  color: #000 !important;
+}
