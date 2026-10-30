@@ -1,4 +1,5 @@
 
+
 import { useState } from 'react'
 import AuroraFlow from './AuroraFlow'
 
@@ -51,52 +52,6 @@ function Hero() {
             that need reliable digital platforms.
           </p>
 
-          {showNotice && (
-            <div
-              className={`hiraya-notice ${
-                isNoticePoofing ? 'hiraya-notice--poof' : ''
-              }`}
-              role="status"
-              onAnimationEnd={handlePoofAnimationEnd}
-            >
-              <div className="hiraya-notice__content">
-                <strong>
-                  👋 Available for Web Development Projects
-                </strong>
-
-                <p>
-                  Have a project in mind? Let's discuss how I can help.
-                </p>
-
-                <a
-                  href="#contact"
-                  className="hiraya-button hiraya-button--primary"
-                >
-                  Schedule a Consultation
-                </a>
-              </div>
-
-              <button
-                type="button"
-                className="hiraya-notice__close"
-                onClick={handleDismissNotice}
-                aria-label="Dismiss availability notice"
-                disabled={isNoticePoofing}
-              >
-                ×
-              </button>
-
-              {isNoticePoofing && (
-                <span
-                  className="hiraya-notice__poof"
-                  aria-hidden="true"
-                >
-                  💨 ✨
-                </span>
-              )}
-            </div>
-          )}
-
           <div className="hiraya-hero__actions">
             <a
               href="#projects"
@@ -128,9 +83,54 @@ function Hero() {
           </div>
         </div>
       </div>
+
+      {showNotice && (
+        <div
+          className={`hiraya-notice ${
+            isNoticePoofing ? 'hiraya-notice--poof' : ''
+          }`}
+          role="status"
+          onAnimationEnd={handlePoofAnimationEnd}
+        >
+          <div className="hiraya-notice__content">
+            <strong>
+              👋 Available for Web Development Projects
+            </strong>
+
+            <p>
+              Have a project in mind? Let's discuss how I can help.
+            </p>
+
+            <a
+              href="#contact"
+              className="hiraya-button hiraya-button--primary"
+            >
+              Schedule a Consultation
+            </a>
+          </div>
+
+          <button
+            type="button"
+            className="hiraya-notice__close"
+            onClick={handleDismissNotice}
+            aria-label="Dismiss availability notice"
+            disabled={isNoticePoofing}
+          >
+            ×
+          </button>
+
+          {isNoticePoofing && (
+            <span
+              className="hiraya-notice__poof"
+              aria-hidden="true"
+            >
+              💨 ✨
+            </span>
+          )}
+        </div>
+      )}
     </section>
   )
 }
 
 export default Hero
-

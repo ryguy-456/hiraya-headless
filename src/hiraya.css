@@ -2490,3 +2490,27 @@ body {
 .hiraya-about .hiraya-about__content p {
   color: #000 !important;
 }
+
+/* Hero and About stacking order */
+.hiraya-aurora-hero {
+  position: relative;
+  z-index: 10 !important;
+  overflow: visible !important;
+}
+
+.hiraya-about {
+  position: relative;
+  z-index: 1 !important;
+}
+
+/* Availability notice floating above About */
+.hiraya-aurora-hero .hiraya-notice {
+  position: absolute !important;
+  left: 50% !important;
+  bottom: 0 !important;
+  transform: translate(-50%, 25%) !important;
+  width: min(850px, calc(100% - 40px));
+  margin: 0 !important;
+  z-index: 100 !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18);
+}

@@ -27,6 +27,8 @@
   outline-offset: 3px;
 }
 
+
+
 .hiraya-a11y__launcher {
   position: fixed;
   right: max(22px, env(safe-area-inset-right));
@@ -39,12 +41,21 @@
   min-height: 56px;
   padding: 0 20px;
   color: #081329;
-  background: linear-gradient(135deg, #e0eaff 0%, #a8c5ff 48%, #87aaff 100%);
   border: 1px solid rgba(255, 255, 255, 0.88);
   border-radius: 999px;
   box-shadow: 0 14px 38px rgba(2, 8, 23, 0.3), 0 0 0 5px rgba(143, 177, 255,  0.10);
   cursor: pointer;
   transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.hiraya-a11y__launcher {
+  background: linear-gradient(135deg, #2563EB, #1D4ED8) !important;
+  color: #FFFFFF !important;
+}
+
+.hiraya-a11y__launcher svg {
+  stroke: #FFFFFF !important;
+  fill: none !important;
 }
 
 .hiraya-a11y__launcher:hover {
@@ -105,7 +116,7 @@
     radial-gradient(ellipse at 100% 0%, rgba(112, 145, 255, 0.16), transparent 42%),
     linear-gradient(155deg, rgba(16, 26, 49, 0.99), rgba(7, 13, 29, 0.99));
   border: 1px solid rgba(185, 204, 255, 0.25);
-  border-radius: 25px;
+  border-radius: 15px;
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.52), inset 0 1px 0 rgba(255, 255, 255, 0.08);
   -webkit-backdrop-filter: blur(26px);
   backdrop-filter: blur(26px);

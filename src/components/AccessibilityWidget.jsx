@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useState } from 'react'
 import '../styles/accessibility-widget.css'
 
@@ -106,11 +107,17 @@ function AccessibilityWidget() {
   const resetSettings = () => setSettings(DEFAULT_SETTINGS)
 
   const decreaseText = () => {
-    updateSetting('textScale', Math.max(1, Math.round((settings.textScale - 0.1) * 10) / 10))
+    updateSetting(
+      'textScale',
+      Math.max(1, Math.round((settings.textScale - 0.1) * 10) / 10),
+    )
   }
 
   const increaseText = () => {
-    updateSetting('textScale', Math.min(1.3, Math.round((settings.textScale + 0.1) * 10) / 10))
+    updateSetting(
+      'textScale',
+      Math.min(1.3, Math.round((settings.textScale + 0.1) * 10) / 10),
+    )
   }
 
   return (
@@ -119,16 +126,27 @@ function AccessibilityWidget() {
         ref={triggerRef}
         className="hiraya-a11y__launcher"
         type="button"
-        aria-label={isOpen ? 'Close accessibility settings' : 'Open accessibility settings'}
+        aria-label={
+          isOpen
+            ? 'Close accessibility settings'
+            : 'Open accessibility settings'
+        }
         aria-expanded={isOpen}
         aria-controls="hiraya-a11y-panel"
         onClick={() => setIsOpen((open) => !open)}
       >
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <circle cx="12" cy="4.5" r="2" />
-          <path d="M4 8.2h16M12 8.4v5.2m0 0-4.3 6M12 13.6l4.3 6M7.5 8.4l1.4 5.2h6.2l1.4-5.2" />
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="12" cy="6.5" r="1.2" />
+          <path d="M7.5 10h9M12 10v3.5m0 0-3 4m3-4 3 4" />
         </svg>
-        <span className="hiraya-a11y__launcher-label">Accessibility</span>
+        <span className="hiraya-a11y__launcher-label">
+          Accessibility
+        </span>
       </button>
 
       {isOpen && (
@@ -140,6 +158,7 @@ function AccessibilityWidget() {
             aria-label="Close accessibility settings"
             onClick={() => setIsOpen(false)}
           />
+
           <section
             id="hiraya-a11y-panel"
             ref={panelRef}
@@ -154,6 +173,7 @@ function AccessibilityWidget() {
                 <p className="hiraya-a11y__eyebrow">HIRAYA TOOLS</p>
                 <h2 id="hiraya-a11y-title">Accessibility</h2>
               </div>
+
               <button
                 className="hiraya-a11y__close"
                 type="button"
@@ -166,12 +186,17 @@ function AccessibilityWidget() {
               </button>
             </header>
 
-            <p className="hiraya-a11y__description" id="hiraya-a11y-description">
-              Adjust the page to make reading more comfortable. Your choices are saved on this device.
+            <p
+              className="hiraya-a11y__description"
+              id="hiraya-a11y-description"
+            >
+              Adjust the page to make reading more comfortable. Your choices
+              are saved on this device.
             </p>
 
             <div className="hiraya-a11y__group">
               <h3>Text size</h3>
+
               <div className="hiraya-a11y__text-controls">
                 <button
                   type="button"
@@ -182,9 +207,11 @@ function AccessibilityWidget() {
                 >
                   A−
                 </button>
+
                 <output className="hiraya-a11y__scale" aria-live="polite">
                   {Math.round(settings.textScale * 100)}%
                 </output>
+
                 <button
                   type="button"
                   className="hiraya-a11y__secondary-button"
@@ -204,18 +231,21 @@ function AccessibilityWidget() {
                 checked={settings.highContrast}
                 onChange={(value) => updateSetting('highContrast', value)}
               />
+
               <SettingToggle
                 title="Underline links"
                 description="Make links easier to identify."
                 checked={settings.underlineLinks}
                 onChange={(value) => updateSetting('underlineLinks', value)}
               />
+
               <SettingToggle
                 title="Comfortable spacing"
                 description="Increase text and line spacing."
                 checked={settings.spaciousText}
                 onChange={(value) => updateSetting('spaciousText', value)}
               />
+
               <SettingToggle
                 title="Reduce motion"
                 description="Limit animations and transitions."
@@ -232,6 +262,7 @@ function AccessibilityWidget() {
               >
                 Reset settings
               </button>
+
               <button
                 type="button"
                 className="hiraya-a11y__done"
@@ -242,7 +273,8 @@ function AccessibilityWidget() {
             </footer>
 
             <p className="hiraya-a11y__note">
-              These tools support browsing preferences; they do not replace accessibility testing.
+              These tools support browsing preferences; they do not replace
+              accessibility testing.
             </p>
           </section>
         </>
@@ -256,8 +288,11 @@ function SettingToggle({ title, description, checked, onChange }) {
     <div className="hiraya-a11y__option">
       <div className="hiraya-a11y__option-copy">
         <span className="hiraya-a11y__option-title">{title}</span>
-        <span className="hiraya-a11y__option-description">{description}</span>
+        <span className="hiraya-a11y__option-description">
+          {description}
+        </span>
       </div>
+
       <button
         type="button"
         className={`hiraya-a11y__switch ${checked ? 'is-on' : ''}`}
@@ -268,8 +303,8 @@ function SettingToggle({ title, description, checked, onChange }) {
       >
         <span className="hiraya-a11y__switch-thumb" />
       </button>
-      <AccessibilityWidget />
     </div>
   )
 }
+
 export default AccessibilityWidget
