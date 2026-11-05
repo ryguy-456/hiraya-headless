@@ -1,9 +1,8 @@
-
-
 import { useState } from 'react'
 import AuroraFlow from './AuroraFlow'
 
-function Hero() {
+function Hero({ t }) {
+  console.log('HERO TRANSLATION:', t.hero)
   const [showNotice, setShowNotice] = useState(true)
   const [isNoticePoofing, setIsNoticePoofing] = useState(false)
 
@@ -40,7 +39,7 @@ function Hero() {
       <div className="hiraya-container">
         <div className="hiraya-hero__content">
           <p className="hiraya-hero__eyebrow">
-            Drupal Developer · Web Experience Specialist
+            {t.hero.eyebrow}
           </p>
 
           <h1 className="hiraya-hero__title">
@@ -48,8 +47,7 @@ function Hero() {
           </h1>
 
           <p className="hiraya-hero__lead">
-            Building accessible, scalable Drupal experiences for organizations
-            that need reliable digital platforms.
+            {t.hero.lead}
           </p>
 
           <div className="hiraya-hero__actions">
@@ -57,14 +55,14 @@ function Hero() {
               href="#projects"
               className="hiraya-button hiraya-button--primary"
             >
-              View My Work
+              {t.hero.viewWork}
             </a>
 
             <a
               href="#contact"
               className="hiraya-button hiraya-button--secondary"
             >
-              Contact Me
+              {t.hero.contact}
             </a>
           </div>
         </div>
@@ -94,18 +92,18 @@ function Hero() {
         >
           <div className="hiraya-notice__content">
             <strong>
-              👋 Available for Web Development Projects
+              {t.hero.noticeTitle}
             </strong>
 
             <p>
-              Have a project in mind? Let's discuss how I can help.
+              {t.hero.noticeDescription}
             </p>
 
             <a
               href="#contact"
               className="hiraya-button hiraya-button--primary"
             >
-              Schedule a Consultation
+              {t.hero.consultation}
             </a>
           </div>
 
@@ -113,7 +111,7 @@ function Hero() {
             type="button"
             className="hiraya-notice__close"
             onClick={handleDismissNotice}
-            aria-label="Dismiss availability notice"
+            aria-label={t.hero.dismiss}
             disabled={isNoticePoofing}
           >
             ×

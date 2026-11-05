@@ -1,36 +1,30 @@
-function About() {
+function About({ t }) {
+console.log('ABOUT COMPONENT LANGUAGE:', t.about.title)
+
+
   return (
     <section id="about" className="hiraya-section hiraya-about">
       <div className="hiraya-container">
 
         <div className="hiraya-section-heading">
-          <p className="hiraya-section-eyebrow">About Me</p>
+          <p className="hiraya-section-eyebrow">
+            {t.about.eyebrow}
+          </p>
 
           <h2 className="hiraya-section-title">
-            Building better web experiences with Drupal.
+            {t.about.title}
           </h2>
         </div>
 
         <div className="hiraya-about__content">
 
-          <p>
-            I'm Ryan Buenconsejo, a Drupal Developer and Web Experience
-            Specialist focused on building accessible, maintainable, and
-            user-centered digital experiences.
-          </p>
+          <p>{t.about.paragraph1}</p>
 
-          <p>
-            I have hands-on experience developing and supporting enterprise
-            Drupal websites, working with content architecture, custom
-            components, Twig templating, accessibility, and deployment
-            workflows.
-          </p>
-        <br />
-          <p>
-            My approach combines strong CMS knowledge with practical
-            front-end development and a focus on creating experiences that
-            are reliable for both users and the teams who maintain them.
-          </p>
+          <p>{t.about.paragraph2}</p>
+
+          <br />
+
+          <p>{t.about.paragraph3}</p>
 
         </div>
 
@@ -38,22 +32,22 @@ function About() {
 
           <div className="hiraya-stat">
             <strong>7+</strong>
-            <span>Years Web Experience</span>
+            <span>{t.about.stat1}</span>
           </div>
 
           <div className="hiraya-stat">
             <strong>Drupal 8–11</strong>
-            <span>Enterprise CMS</span>
+            <span>{t.about.stat2}</span>
           </div>
 
           <div className="hiraya-stat">
             <strong>WCAG / 508</strong>
-            <span>Accessibility</span>
+            <span>{t.about.stat3}</span>
           </div>
 
           <div className="hiraya-stat">
             <strong>Pantheon</strong>
-            <span>Deployment Platform</span>
+            <span>{t.about.stat4}</span>
           </div>
 
         </div>

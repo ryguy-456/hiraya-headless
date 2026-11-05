@@ -1,7 +1,10 @@
-import AccessibilityWidget from './components/AccessibilityWidget';
+import AccessibilityWidget from './components/AccessibilityWidget'
 import { useEffect, useState } from 'react'
 import './hiraya.css'
 import './react-theme.css'
+
+import translations from './data/translations'
+
 import ReactNav from './components/ReactNav'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -15,6 +18,13 @@ import Chatbot from './components/Chatbot'
 
 function App() {
   const [projects, setProjects] = useState([])
+
+  // Language state
+  const [language, setLanguage] = useState('en')
+  const t = translations[language]
+
+console.log('About Spanish title:', translations.es.about?.title)
+console.log('Current About title:', t.about?.title)
 
   useEffect(() => {
     fetch('https://dev-ryan-buenconsejo.pantheonsite.io/api/projects')
@@ -30,10 +40,15 @@ function App() {
 
   return (
     <>
-      <ReactNav />
-      <Hero />
-      <About />
-      <Experience />
+      <ReactNav
+        language={language}
+        setLanguage={setLanguage}
+        t={t}
+      />
+
+      <Hero t={t} />
+      <About t={t} />
+      <Experience t={t} />
       <Skills />
       <Toolkit />
       <Projects projects={projects} />

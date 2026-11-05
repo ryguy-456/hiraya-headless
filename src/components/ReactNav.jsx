@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
+import LanguageToggle from './LanguageToggle'
 
-function ReactNav() {
+function ReactNav({ language, setLanguage, t }) {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -9,7 +10,6 @@ function ReactNav() {
     }
 
     window.addEventListener('scroll', handleScroll)
-
     handleScroll()
 
     return () => {
@@ -26,15 +26,22 @@ function ReactNav() {
         </a>
 
         <div className="react-nav__links">
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
+          <a href="#about">{t.nav.about}</a>
+          <a href="#experience">{t.nav.experience}</a>
+          <a href="#skills">{t.nav.skills}</a>
+          <a href="#projects">{t.nav.projects}</a>
         </div>
 
-        <a href="#contact" className="react-nav__contact">
-          Contact Me
-        </a>
+        <div className="react-nav__actions">
+          <LanguageToggle
+            language={language}
+            setLanguage={setLanguage}
+          />
+
+          <a href="#contact" className="react-nav__contact">
+            {t.nav.contact}
+          </a>
+        </div>
 
       </div>
     </nav>
