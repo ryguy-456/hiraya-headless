@@ -1,8 +1,8 @@
+
 import { useState } from 'react'
-import AuroraFlow from './AuroraFlow'
+import DotField from './DotField'
 
 function Hero({ t }) {
-  console.log('HERO TRANSLATION:', t.hero)
   const [showNotice, setShowNotice] = useState(true)
   const [isNoticePoofing, setIsNoticePoofing] = useState(false)
 
@@ -27,8 +27,10 @@ function Hero({ t }) {
         showNotice ? 'hiraya-hero--notice-open' : ''
       }`}
     >
-      <AuroraFlow />
+      {/* Animated dot field background */}
+      <DotField />
 
+      {/* Hero background overlay */}
       <div
         className={`hiraya-aurora-overlay ${
           showNotice ? 'hiraya-aurora-overlay--notice-open' : ''
@@ -37,6 +39,7 @@ function Hero({ t }) {
       />
 
       <div className="hiraya-container">
+        {/* Hero content */}
         <div className="hiraya-hero__content">
           <p className="hiraya-hero__eyebrow">
             {t.hero.eyebrow}
@@ -67,6 +70,7 @@ function Hero({ t }) {
           </div>
         </div>
 
+        {/* Drupal visual card */}
         <div className="hiraya-hero__visual" aria-hidden="true">
           <div className="hiraya-hero__card">
             <span className="hiraya-hero__card-label">
@@ -82,6 +86,7 @@ function Hero({ t }) {
         </div>
       </div>
 
+      {/* Availability notice */}
       {showNotice && (
         <div
           className={`hiraya-notice ${
