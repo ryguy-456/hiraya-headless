@@ -1,5 +1,7 @@
-function Footer() {
+
+function Footer({ t }) {
   const currentYear = new Date().getFullYear()
+  const content = t.footer
 
   return (
     <footer className="hiraya-footer">
@@ -13,16 +15,19 @@ function Footer() {
             </a>
 
             <p>
-              Drupal Developer · Web Experience Specialist
+              {content.tagline}
             </p>
           </div>
 
-          <nav className="hiraya-footer__nav" aria-label="Footer navigation">
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#contact">Contact</a>
+          <nav
+            className="hiraya-footer__nav"
+            aria-label={t.language === 'es' ? 'Navegación del pie de página' : 'Footer navigation'}
+          >
+            <a href="#about">{t.nav.about}</a>
+            <a href="#experience">{t.nav.experience}</a>
+            <a href="#projects">{t.nav.projects}</a>
+            <a href="#skills">{t.nav.skills}</a>
+            <a href="#contact">{t.nav.contact}</a>
           </nav>
 
         </div>
@@ -34,7 +39,7 @@ function Footer() {
           </span>
 
           <span>
-            Built with Drupal 11
+            {content.rights}
           </span>
 
         </div>

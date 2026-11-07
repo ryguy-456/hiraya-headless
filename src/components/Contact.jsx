@@ -1,4 +1,7 @@
-function Contact() {
+
+function Contact({ t }) {
+  const content = t.contact
+
   return (
     <section id="contact" className="hiraya-section hiraya-contact">
       <div className="hiraya-container">
@@ -8,16 +11,15 @@ function Contact() {
           <div className="hiraya-contact__content">
 
             <p className="hiraya-section-eyebrow">
-              Let's Connect
+              {content.eyebrow}
             </p>
 
             <h2 className="hiraya-contact__title">
-              Have a Drupal project or opportunity?
+              {content.title}
             </h2>
 
             <p className="hiraya-contact__text">
-              I'm interested in opportunities where I can contribute to
-              reliable, accessible, and maintainable digital experiences.
+              {content.description}
             </p>
 
             <div className="hiraya-contact__actions">
@@ -26,7 +28,7 @@ function Contact() {
                 href="mailto:ryan.buenconsejo@gmail.com"
                 className="hiraya-button hiraya-button--light"
               >
-                Email Me
+                {content.email}
               </a>
 
               <a
@@ -35,7 +37,7 @@ function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GitHub
+                {content.github}
               </a>
 
               <a
@@ -44,7 +46,7 @@ function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                LinkedIn
+                {content.linkedin}
               </a>
 
             </div>

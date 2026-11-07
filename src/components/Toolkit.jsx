@@ -1,115 +1,60 @@
-function Toolkit() {
+
+function Toolkit({ t }) {
+  const toolkit = t.toolkit
+
+  const icons = ['D', 'SDC', 'Twig', 'CLI', 'DDEV', 'Git']
+
   return (
     <section id="drupal-toolkit" className="hiraya-section hiraya-toolkit">
       <div className="hiraya-container">
 
         <div className="hiraya-section-heading">
-          <p className="hiraya-section-eyebrow">Drupal Toolkit</p>
+          <p className="hiraya-section-eyebrow">
+            {toolkit.eyebrow}
+          </p>
 
           <h2 className="hiraya-section-title">
-            Modern tools for building Drupal experiences.
+            {toolkit.title}
           </h2>
 
           <p className="hiraya-toolkit__intro">
-            The tools and technologies I use to build, customize, test, and
-            deploy Drupal websites and digital experiences.
+            {toolkit.description}
           </p>
         </div>
 
         <div className="hiraya-toolkit__grid">
-
-          <article className="hiraya-toolkit-card hiraya-toolkit-card--featured">
-            <div className="hiraya-toolkit-card__icon" aria-hidden="true">
-              D
-            </div>
-
-            <div>
-              <p className="hiraya-toolkit-card__eyebrow">Featured</p>
-              <h3>Drupal Canvas</h3>
-
-              <p>
-                Visual page building and reusable components for creating
-                flexible, modern Drupal content experiences.
-              </p>
-
-              <div className="hiraya-toolkit-card__tags">
-                <span>Canvas</span>
-                <span>Components</span>
-                <span>Drupal 11</span>
+          {toolkit.items.map((item, index) => (
+            <article
+              className={`hiraya-toolkit-card ${
+                index === 0 ? 'hiraya-toolkit-card--featured' : ''
+              }`}
+              key={item.title}
+            >
+              <div className="hiraya-toolkit-card__icon" aria-hidden="true">
+                {icons[index]}
               </div>
-            </div>
-          </article>
 
-          <article className="hiraya-toolkit-card">
-            <div className="hiraya-toolkit-card__icon" aria-hidden="true">
-              SDC
-            </div>
+              <div>
+                {index === 0 && (
+                  <p className="hiraya-toolkit-card__eyebrow">
+                    {t.language === 'es' ? 'Destacado' : 'Featured'}
+                  </p>
+                )}
 
-            <div>
-              <h3>Single Directory Components</h3>
-              <p>
-                Reusable Drupal components that keep frontend markup,
-                styles, and behavior organized together.
-              </p>
-            </div>
-          </article>
+                <h3>{item.title}</h3>
 
-          <article className="hiraya-toolkit-card">
-            <div className="hiraya-toolkit-card__icon" aria-hidden="true">
-              Twig
-            </div>
+                <p>{item.description}</p>
 
-            <div>
-              <h3>Twig &amp; Theming</h3>
-              <p>
-                Custom Drupal templates, theme development, responsive
-                layouts, and component-focused frontend work.
-              </p>
-            </div>
-          </article>
-
-          <article className="hiraya-toolkit-card">
-            <div className="hiraya-toolkit-card__icon" aria-hidden="true">
-              CLI
-            </div>
-
-            <div>
-              <h3>Drush &amp; Composer</h3>
-              <p>
-                Drupal administration, cache management, configuration,
-                dependencies, updates, and development workflows.
-              </p>
-            </div>
-          </article>
-
-          <article className="hiraya-toolkit-card">
-            <div className="hiraya-toolkit-card__icon" aria-hidden="true">
-              DDEV
-            </div>
-
-            <div>
-              <h3>Local Development</h3>
-              <p>
-                DDEV and Docker-based local Drupal environments for building
-                and testing changes before deployment.
-              </p>
-            </div>
-          </article>
-
-          <article className="hiraya-toolkit-card">
-            <div className="hiraya-toolkit-card__icon" aria-hidden="true">
-              Git
-            </div>
-
-            <div>
-              <h3>Git &amp; Pantheon</h3>
-              <p>
-                Version control, GitHub collaboration, Pantheon environments,
-                deployments, and Drupal release workflows.
-              </p>
-            </div>
-          </article>
-
+                {index === 0 && (
+                  <div className="hiraya-toolkit-card__tags">
+                    <span>Canvas</span>
+                    <span>Components</span>
+                    <span>Drupal 11</span>
+                  </div>
+                )}
+              </div>
+            </article>
+          ))}
         </div>
 
       </div>

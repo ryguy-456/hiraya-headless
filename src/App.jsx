@@ -1,3 +1,4 @@
+
 import AccessibilityWidget from './components/AccessibilityWidget'
 import { useEffect, useState } from 'react'
 import './hiraya.css'
@@ -23,9 +24,6 @@ function App() {
   const [language, setLanguage] = useState('en')
   const t = translations[language]
 
-console.log('About Spanish title:', translations.es.about?.title)
-console.log('Current About title:', t.about?.title)
-
   useEffect(() => {
     fetch('https://dev-ryan-buenconsejo.pantheonsite.io/api/projects')
       .then((response) => response.json())
@@ -49,11 +47,12 @@ console.log('Current About title:', t.about?.title)
       <Hero t={t} />
       <About t={t} />
       <Experience t={t} />
-      <Skills />
-      <Toolkit />
-      <Projects projects={projects} />
-      <Contact />
-      <Footer />
+      <Skills t={t} />
+      <Toolkit t={t} />
+      <Projects projects={projects} t={t} />
+      <Contact t={t} />
+      <Footer t={t} />
+
       <Chatbot />
       <AccessibilityWidget />
     </>

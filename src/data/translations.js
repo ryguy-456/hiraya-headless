@@ -46,6 +46,88 @@ const translations = {
         'Provided Tier 2 technical support and troubleshooting for website and digital platform issues.',
       ],
     },
+
+    skills: {
+      eyebrow: 'Skills',
+      title: 'Technical skills and areas of expertise.',
+      description: 'A combination of Drupal development, front-end implementation, development workflows, and accessibility practices.',
+      groups: [
+        {
+          title: 'Drupal Development',
+          description: 'Drupal 8–11, custom modules, content types, taxonomies, Views, Webforms, custom blocks, Twig, and content architecture.',
+          tags: ['Drupal', 'Twig', 'Views', 'Webforms', 'PHP'],
+        },
+        {
+          title: 'Front-End Development',
+          description: 'Building responsive interfaces and reusable components with HTML, CSS, JavaScript, Twig, and modern front-end practices.',
+          tags: ['HTML', 'CSS', 'JavaScript', 'Twig', 'React'],
+        },
+        {
+          title: 'Development Workflow',
+          description: 'Local Drupal development, version control, dependency management, command-line tools, and deployment workflows.',
+          tags: ['Git', 'GitHub', 'DDEV', 'Drush', 'Composer', 'Pantheon'],
+        },
+        {
+          title: 'Accessibility & QA',
+          description: 'Accessibility-focused development, quality assurance, content validation, responsive testing, and standards-based web practices.',
+          tags: ['WCAG 2.1 AA', 'Section 508', 'QA', 'Responsive Design', 'SEO'],
+        },
+      ],
+    },
+
+    toolkit: {
+      eyebrow: 'Drupal Toolkit',
+      title: 'Modern tools for building Drupal experiences.',
+      description: 'The tools and technologies I use to build, customize, test, and deploy Drupal websites.',
+      items: [
+        {
+          title: 'Drupal Canvas',
+          description: 'A visual page-building experience for creating layouts and reusable components within Drupal.',
+        },
+        {
+          title: 'Single Directory Components',
+          description: 'Organizing component templates, styles, and functionality into reusable, maintainable units.',
+        },
+        {
+          title: 'Twig & Theming',
+          description: 'Creating custom Drupal front-end experiences with Twig templates, CSS, and JavaScript.',
+        },
+        {
+          title: 'Drush & Composer',
+          description: 'Managing Drupal projects, dependencies, configuration, and command-line development tasks.',
+        },
+        {
+          title: 'Local Development',
+          description: 'Using DDEV and Docker to create consistent local Drupal development environments.',
+        },
+        {
+          title: 'Git & Pantheon',
+          description: 'Managing source code, collaborating through Git, and deploying across Pantheon environments.',
+        },
+      ],
+    },
+
+    projects: {
+      eyebrow: 'Projects',
+      title: "A few things I've built.",
+      description: 'A selection of projects demonstrating my experience with Drupal, front-end development, and modern web technologies.',
+      projectType: 'Drupal Project',
+      viewWork: 'View My Drupal Work',
+    },
+
+    contact: {
+      eyebrow: "Let's Connect",
+      title: 'Have a Drupal project or opportunity?',
+      description: "I'm always interested in connecting with teams looking to build reliable, accessible, and maintainable digital experiences.",
+      email: 'Email Me',
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+    },
+
+    footer: {
+      tagline: 'Building accessible and reliable web experiences with Drupal.',
+      rights: 'All rights reserved.',
+    },
   },
 
   es: {
@@ -93,6 +175,88 @@ const translations = {
         'Colaboré con partes interesadas, equipos de contenido y socios de proyectos para resolver problemas y entregar actualizaciones.',
         'Proporcioné soporte técnico de nivel 2 y resolución de problemas relacionados con sitios web y plataformas digitales.',
       ],
+    },
+
+    skills: {
+      eyebrow: 'Habilidades',
+      title: 'Conocimientos técnicos y áreas de especialización.',
+      description: 'Una combinación de desarrollo Drupal, implementación front-end, flujos de trabajo de desarrollo y prácticas de accesibilidad.',
+      groups: [
+        {
+          title: 'Desarrollo Drupal',
+          description: 'Drupal 8–11, módulos personalizados, tipos de contenido, taxonomías, Views, Webforms, bloques personalizados, Twig y arquitectura de contenido.',
+          tags: ['Drupal', 'Twig', 'Views', 'Webforms', 'PHP'],
+        },
+        {
+          title: 'Desarrollo Front-End',
+          description: 'Creación de interfaces adaptables y componentes reutilizables con HTML, CSS, JavaScript, Twig y prácticas modernas de desarrollo front-end.',
+          tags: ['HTML', 'CSS', 'JavaScript', 'Twig', 'React'],
+        },
+        {
+          title: 'Flujo de Trabajo de Desarrollo',
+          description: 'Desarrollo local con Drupal, control de versiones, gestión de dependencias, herramientas de línea de comandos y procesos de implementación.',
+          tags: ['Git', 'GitHub', 'DDEV', 'Drush', 'Composer', 'Pantheon'],
+        },
+        {
+          title: 'Accesibilidad y Control de Calidad',
+          description: 'Desarrollo enfocado en la accesibilidad, control de calidad, validación de contenido, pruebas adaptables y estándares web.',
+          tags: ['WCAG 2.1 AA', 'Section 508', 'QA', 'Diseño adaptable', 'SEO'],
+        },
+      ],
+    },
+
+    toolkit: {
+      eyebrow: 'Herramientas de Drupal',
+      title: 'Herramientas modernas para crear experiencias con Drupal.',
+      description: 'Las herramientas y tecnologías que utilizo para crear, personalizar, probar e implementar sitios web con Drupal.',
+      items: [
+        {
+          title: 'Drupal Canvas',
+          description: 'Una experiencia visual para crear diseños de página y componentes reutilizables dentro de Drupal.',
+        },
+        {
+          title: 'Componentes de Directorio Único',
+          description: 'Organización de plantillas, estilos y funcionalidades en componentes reutilizables y fáciles de mantener.',
+        },
+        {
+          title: 'Twig y Temas',
+          description: 'Creación de experiencias front-end personalizadas con plantillas Twig, CSS y JavaScript.',
+        },
+        {
+          title: 'Drush y Composer',
+          description: 'Gestión de proyectos Drupal, dependencias, configuración y tareas de desarrollo mediante la línea de comandos.',
+        },
+        {
+          title: 'Desarrollo Local',
+          description: 'Uso de DDEV y Docker para crear entornos locales de desarrollo Drupal consistentes.',
+        },
+        {
+          title: 'Git y Pantheon',
+          description: 'Gestión de código fuente, colaboración mediante Git e implementación en los distintos entornos de Pantheon.',
+        },
+      ],
+    },
+
+    projects: {
+      eyebrow: 'Proyectos',
+      title: 'Algunos proyectos que he desarrollado.',
+      description: 'Una selección de proyectos que demuestra mi experiencia con Drupal, desarrollo front-end y tecnologías web modernas.',
+      projectType: 'Proyecto Drupal',
+      viewWork: 'Ver mis proyectos Drupal',
+    },
+
+    contact: {
+      eyebrow: 'Conectemos',
+      title: '¿Tienes un proyecto u oportunidad relacionada con Drupal?',
+      description: 'Siempre me interesa conectar con equipos que buscan crear experiencias digitales confiables, accesibles y fáciles de mantener.',
+      email: 'Envíame un correo',
+      github: 'GitHub',
+      linkedin: 'LinkedIn',
+    },
+
+    footer: {
+      tagline: 'Creando experiencias web accesibles y confiables con Drupal.',
+      rights: 'Todos los derechos reservados.',
     },
   },
 }

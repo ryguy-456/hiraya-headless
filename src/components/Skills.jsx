@@ -1,103 +1,41 @@
-function Skills() {
+
+function Skills({ t }) {
+  const skills = t.skills
+
   return (
     <section id="skills" className="hiraya-section hiraya-skills">
       <div className="hiraya-container">
 
         <div className="hiraya-section-heading">
-          <p className="hiraya-section-eyebrow">Skills</p>
+          <p className="hiraya-section-eyebrow">
+            {skills.eyebrow}
+          </p>
 
           <h2 className="hiraya-section-title">
-            Tools and technologies I work with.
+            {skills.title}
           </h2>
+
+          <p>{skills.description}</p>
         </div>
 
         <div className="hiraya-skills__grid">
+          {skills.groups.map((group, index) => (
+            <div className="hiraya-skill-group" key={group.title}>
+              <div className="hiraya-skill-group__icon" aria-hidden="true">
+                {['</>', 'CSS', 'Git', '508'][index]}
+              </div>
 
-          <div className="hiraya-skill-group">
-            <div className="hiraya-skill-group__icon" aria-hidden="true">
-              &lt;/&gt;
+              <h3>{group.title}</h3>
+
+              <p>{group.description}</p>
+
+              <div className="hiraya-skill-group__tags">
+                {group.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
             </div>
-
-            <h3>Drupal Development</h3>
-
-            <p>
-              Drupal 8–11, custom modules, content types, taxonomies, Views,
-              Webforms, custom blocks, Twig, and content architecture.
-            </p>
-
-            <div className="hiraya-skill-group__tags">
-              <span>Drupal</span>
-              <span>Twig</span>
-              <span>Views</span>
-              <span>Webforms</span>
-              <span>PHP</span>
-            </div>
-          </div>
-
-          <div className="hiraya-skill-group">
-            <div className="hiraya-skill-group__icon" aria-hidden="true">
-              CSS
-            </div>
-
-            <h3>Front-End Development</h3>
-
-            <p>
-              Responsive interfaces and reusable components using HTML, CSS,
-              JavaScript, Twig, and modern front-end development practices.
-            </p>
-
-            <div className="hiraya-skill-group__tags">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-              <span>Twig</span>
-              <span>React</span>
-            </div>
-          </div>
-
-          <div className="hiraya-skill-group">
-            <div className="hiraya-skill-group__icon" aria-hidden="true">
-              Git
-            </div>
-
-            <h3>Development Workflow</h3>
-
-            <p>
-              Local Drupal development, version control, dependency management,
-              command-line tooling, and deployment workflows.
-            </p>
-
-            <div className="hiraya-skill-group__tags">
-              <span>Git</span>
-              <span>GitHub</span>
-              <span>DDEV</span>
-              <span>Drush</span>
-              <span>Composer</span>
-              <span>Pantheon</span>
-            </div>
-          </div>
-
-          <div className="hiraya-skill-group">
-            <div className="hiraya-skill-group__icon" aria-hidden="true">
-              508
-            </div>
-
-            <h3>Accessibility &amp; QA</h3>
-
-            <p>
-              Accessibility-focused development, quality assurance, content
-              validation, responsive testing, and standards-based web practices.
-            </p>
-
-            <div className="hiraya-skill-group__tags">
-              <span>WCAG 2.1 AA</span>
-              <span>Section 508</span>
-              <span>QA</span>
-              <span>Responsive</span>
-              <span>SEO</span>
-            </div>
-          </div>
-
+          ))}
         </div>
 
       </div>
@@ -106,3 +44,4 @@ function Skills() {
 }
 
 export default Skills
+

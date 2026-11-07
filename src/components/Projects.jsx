@@ -1,24 +1,27 @@
-function Projects({ projects }) {
+
+
+function Projects({ projects, t }) {
+  const content = t.projects
+
   return (
     <section id="projects" className="hiraya-section hiraya-projects">
       <div className="hiraya-container">
 
         <div className="hiraya-section-heading">
-          <p className="hiraya-section-eyebrow">Projects</p>
+          <p className="hiraya-section-eyebrow">
+            {content.eyebrow}
+          </p>
 
           <h2 className="hiraya-section-title">
-            A few things I've built.
+            {content.title}
           </h2>
 
           <p className="hiraya-projects__intro">
-            A selection of Drupal, front-end, and development work demonstrating
-            practical experience across CMS development, custom theming, and
-            modern web applications.
+            {content.description}
           </p>
         </div>
 
         <div className="hiraya-projects__grid">
-
           {projects.map((project, index) => (
             <article className="hiraya-project-card" key={project.id}>
 
@@ -28,7 +31,7 @@ function Projects({ projects }) {
                 </span>
 
                 <span className="hiraya-project-card__type">
-                  {project.type || 'Drupal Project'}
+                  {project.type || content.projectType}
                 </span>
               </div>
 
@@ -42,7 +45,6 @@ function Projects({ projects }) {
 
             </article>
           ))}
-
         </div>
 
         <div className="hiraya-projects__cta">
@@ -52,7 +54,7 @@ function Projects({ projects }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            View My Drupal Work →
+            {content.viewWork} →
           </a>
         </div>
 
